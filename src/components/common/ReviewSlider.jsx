@@ -45,8 +45,8 @@ function ReviewSlider() {
           className="w-full"
         >
           {reviews.map((review, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-richblack-800 p-4 text-richblack-25 rounded-lg">
+            <SwiperSlide key={index} className="flex justify-center lg:justify-normal">
+              <div className="bg-richblack-800 p-4 text-richblack-25 rounded-lg w-fit">
                 <div className="flex items-center gap-4">
                   <img
                     src={review?.user?.image ? review?.user?.image : `https://api.dicebear.com/5.x/initials/svg?seed=${review?.user?.firstName} ${review?.user?.lastName}`}
