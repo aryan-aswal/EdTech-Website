@@ -67,7 +67,7 @@ const paymentSuccessEmail = (amount, paymentId, orderId, name, lastname) => {
     
     <body>
         <div class="container">
-            <a href="https://studynotion-edtech-project.vercel.app"><img class="logo" src="https://res.cloudinary.com/diuysgmb7/image/upload/v1735739720/StudyNotion/rzp_logo_rs6urs.png"
+            <a href="https://study-notion-six-sable.vercel.app"><img class="logo" src="https://res.cloudinary.com/diuysgmb7/image/upload/v1735739720/StudyNotion/rzp_logo_rs6urs.png"
                     alt="StudyNotion Logo"></a>
             <div class="message">
             Your payment of ₹${amount} has been successfully received.
