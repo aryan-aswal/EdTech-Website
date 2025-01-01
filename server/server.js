@@ -16,7 +16,12 @@ require('dotenv').config();
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+    origin: '*', // This allows all origins
+    credentials: true, // Include this if cookies or credentials are involved
+}));
+
 
 app.use(fileUpload({
     tempFileDir: "/tmp/",

@@ -65,7 +65,7 @@ export default function VideoDetailsSidebar({ setReviewModal, isSidebarVisible, 
                 {completedLectures?.length} / {totalNoOfLectures}
               </p>
             </div>
-            <button onClick={() => setSidebarVisible(!isSidebarVisible)}>
+            <button onClick={() => setSidebarVisible(!isSidebarVisible)} className="lg:hidden">
               <ImCross className="bg-richblack-100 text-richblack-700 rounded-full p-2" fontSize={30} />
             </button>
           </div>
