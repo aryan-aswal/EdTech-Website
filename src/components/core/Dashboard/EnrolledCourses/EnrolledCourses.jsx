@@ -79,7 +79,7 @@ const EnrolledCourses = () => {
                       <div className='flex w-[45%] cursor-pointer items-center gap-4 px-5 py-3'>
                         <img className='h-14 w-14 rounded-lg object-cover' src={course.thumbnail} />
                         <div className='flex max-w-xs flex-col gap-2'>
-                          <p className='font-semibold'>{course.courseName}</p>
+                          <p className='font-semibold lg:text-normal text-sm'>{course.courseName}</p>
                           <p className='text-xs text-richblack-300 hidden md:block'>{
                             //description with max 50 characters
                             course.courseDescription.length > 50 ? course.courseDescription.slice(0, 50) + '....' : course.courseDescription

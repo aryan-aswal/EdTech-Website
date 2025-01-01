@@ -59,21 +59,17 @@ const CourseComponent = ({ courseId }) => {
         }
     }
 
-
-
-
-
     return (
-        <div className="flex bg-gray-900 text-white p-4 rounded-lg shadow-lg justify-between gap-x-2">
-            <div className="w-[400px]">
-                <img src={course?.thumbnail} alt="Course Thumbnail" className="rounded-md h-[200px]" />
+        <div className="flex flex-col sm:flex-row bg-gray-900 text-white p-4 rounded-lg shadow-lg justify-between gap-x-2 sm:gap-x-4">
+            <div className="w-full sm:w-[400px]">
+                <img src={course?.thumbnail} alt="Course Thumbnail" className="rounded-md h-[200px] w-full object-cover" />
             </div>
 
-            <div className="w-2/3 pl-4 flex flex-col justify-between">
+            <div className="w-full sm:w-2/3 pl-0 sm:pl-4 flex flex-col justify-between">
                 <div>
-                    <h1 className="font-bold text-lg">{course?.courseName}</h1>
+                    <h1 className="font-bold text-lg sm:text-xl">{course?.courseName}</h1>
                     <p className="text-richblack-400 font-semibold text-sm">{course?.category?.name}</p>
-                    <div className="flex items-center">
+                    <div className="flex items-center mt-2">
                         <ReactStars
                             count={5}
                             value={rating}
@@ -87,9 +83,9 @@ const CourseComponent = ({ courseId }) => {
                     </div>
                 </div>
 
-                <div className="mt-4 ">
+                <div className="mt-4">
                     <p className="text-yellow-100 text-xl font-bold">Rs {course?.price}</p>
-                    <div className='flex flex-row gap-3 items-center mt-2'>
+                    <div className='flex flex-row gap-3 items-center mt-2 flex-wrap'>
                         <button 
                             className="bg-richblack-800 flex items-center justify-center gap-2 cursor-pointer text-center text-[13px] sm:text-[16px] px-6 py-3 rounded-md font-bold  hover:shadow-none hover:scale-95 transition-all duration-200 text-red-700"
                             onClick={removeHandler}
@@ -104,7 +100,6 @@ const CourseComponent = ({ courseId }) => {
                             { matchRoute("/dashboard/bookmarked-courses") ? (<span>Add to Cart</span>) : (<span>Save for later</span>) }
                         </button>
                     </div>
-
                 </div>
             </div>
         </div>

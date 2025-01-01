@@ -13,6 +13,7 @@ const ViewCourse = () => {
   const { token } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const [reviewModal, setReviewModal] = useState(false)
+  const [isSidebarVisible, setSidebarVisible] = useState(false); // New state for sidebar visibility
 
   useEffect(() => {
     ; (async () => {
@@ -31,12 +32,12 @@ const ViewCourse = () => {
   }, [])
 
   return (
-    <div className='flex'>
-        <div className="relative flex min-h-[calc(100vh-3.5rem)]">
-            <VideoDetailsSidebar setReviewModal={setReviewModal}/>
+    <div className='flex lg:mt-0 mt-20 h-[calc(100vh-3.5rem)]'>
+        <div className="relative flex">
+            <VideoDetailsSidebar setReviewModal={setReviewModal} setSidebarVisible={setSidebarVisible} isSidebarVisible={isSidebarVisible}/>
         </div>
-        <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
-          <div className="mx-6">
+        <div className=" flex-1 overflow-auto">
+          <div className="mx-6 mt-6">
             <Outlet />
           </div>
         </div>

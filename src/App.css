@@ -318,6 +318,14 @@ details > summary::-webkit-details-marker {
 
 
 
+@media (max-width: 1024px) {
+  .sidebar-hidden {
+    transform: translateX(-100%);
+  }
+  .sidebar-visible {
+    transform: translateX(0);
+  }
+}
 
 
 
