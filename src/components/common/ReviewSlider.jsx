@@ -41,6 +41,12 @@ function ReviewSlider() {
             delay: 1000,
             disableOnInteraction: false,
           }}
+          breakpoints={{
+            320: { slidesPerView: Math.min(1, reviews.length) },
+            640: { slidesPerView: Math.min(2, reviews.length) },
+            1024: { slidesPerView: Math.min(3, reviews.length) }, 
+            1280: { slidesPerView: Math.min(4, reviews.length) },
+          }}
           modules={[FreeMode, Pagination, Autoplay]}
           className="w-full"
         >
