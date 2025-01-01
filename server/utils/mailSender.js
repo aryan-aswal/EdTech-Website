@@ -3,6 +3,8 @@ require('dotenv').config();
 // Create Transporter
 
 const mailSender = async(email, title, body) => {
+    console.log(email, title, body);
+    console.log(process.env.MAIL_HOST, process.env.MAIL_USER, process.env.MAIL_PASS);
     try {
         const transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,

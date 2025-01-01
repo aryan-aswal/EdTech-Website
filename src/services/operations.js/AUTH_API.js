@@ -97,6 +97,7 @@ export const sendOTP = (email, navigate) => {
     return async(dispatch) => {
         dispatch(setLoading(true));
         const toastId = toast.loading("loading...");
+        console.log(email);
         try {
             const response = await apiConnector("POST", endpoints.SENDOTP_API, {email});
             console.log("SEND OTP API RESPONSE............", response);

@@ -12,7 +12,9 @@ require('dotenv').config();
 const sendotp = async(req, res ) => {
     try {
         // fetch email from request
+        console.log("Request received for OTP generation");
         const { email } = req.body;
+        console.log(email);
 
         // validation --> check whether user is registered or not
         const isUserPresent = await User.findOne({email: email});
@@ -40,6 +42,7 @@ const sendotp = async(req, res ) => {
 
         // creating entry of otp in database
         const otpPayload = {email, otp};
+        console.log("hello");
         const otpBody = await OTP.create(otpPayload);
 
         console.log("hello");
@@ -65,6 +68,7 @@ const signup = async(req, res) => {
     try {
 
         const { firstName, lastName, email, password, confirmPassword, accountType, otp, contactNumber } = req.body;
+        console.log("hello");
 
         if(!firstName || !lastName || !email || !password || !confirmPassword || !otp) {
             return res.status(400).json({

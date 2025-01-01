@@ -14,8 +14,6 @@ require('dotenv').config();
 const capturePayment = async (req, res) => {
   const { courses } = req.body;
   const userId = req.user.id;
-
-  console.log(courses, userId)
   if (!courses.length) {
     return res.json({ success: false, message: "Please Provide Course ID" });
   }
@@ -47,10 +45,8 @@ const capturePayment = async (req, res) => {
     currency: "INR",
     receipt: Math.random(Date.now()).toString(),
   };
-  console.log(options);
   try {
     const paymentResponse = await instance.orders.create(options);
-    console.log(paymentResponse);
     res.json({
       success: true,
       data: paymentResponse,
@@ -69,7 +65,6 @@ const verifyPayment = async (req, res) => {
   const razorpay_signature = req.body?.razorpay_signature;
   const courses = req.body?.courses;
   const userId = req.user.id;
-  console.log(razorpay_order_id, razorpay_payment_id, razorpay_signature, courses, userId);
   if (
     !razorpay_order_id ||
     !razorpay_payment_id ||
@@ -83,9 +78,8 @@ const verifyPayment = async (req, res) => {
   const expectedSignature = crypto
     .createHmac("sha256", process.env.RAZORPAY_SECRET)
     .update(body.toString())
-    .digest("hex");
-  
-  console.log(expectedSignature, razorpay_signature)
+    .digest("hex")
+    
   if (expectedSignature === razorpay_signature) {
     await enrollStudents(courses, userId, res);
     return res.status(200).json({ success: true, message: "Payment Verified" });
